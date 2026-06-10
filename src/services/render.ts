@@ -11,6 +11,54 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
+function renderSharedDepth() {
+  return `<section class="section">
+      <h2>Product depth</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="chip">Buyer value</div>
+          <h3>Capital movement becomes explainable.</h3>
+          <p>Executives can see which lanes should be trimmed, protected, held, or funded next, plus the board-safe story behind each move.</p>
+        </article>
+        <article class="card">
+          <div class="chip">Technical proof</div>
+          <h3>One model powers every surface.</h3>
+          <p>The same TypeScript scoring path generates CLI output, JSON payloads, static routes, screenshots, risk maps, and verification notes.</p>
+        </article>
+        <article class="card">
+          <div class="chip">GTM story</div>
+          <h3>Decision support, not another dashboard.</h3>
+          <p>The repo packages a premium board-intelligence artifact: where exposure sits, where savings are credible, and where investment deserves priority.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section">
+      <h2>What these repos have in common</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="chip">Risk signal</div>
+          <h3>Weak capital stories become visible.</h3>
+          <p>Savings release, downside containment, timing, urgency, and board alignment replace vague transformation claims.</p>
+        </article>
+        <article class="card">
+          <div class="chip">Owner context</div>
+          <h3>Every lane has an accountable audience.</h3>
+          <p>The brief keeps owner, audience, source, destination, and next move attached to each capital decision.</p>
+        </article>
+        <article class="card">
+          <div class="chip">Evidence packet</div>
+          <h3>The proof can travel.</h3>
+          <p>Static pages, API payloads, screenshots, docs, and tests create a reusable packet for boards, diligence rooms, and operating reviews.</p>
+        </article>
+        <article class="card">
+          <div class="chip">Next action</div>
+          <h3>The route resolves to a decision.</h3>
+          <p>Each lane points toward trim, protect, hold, or redeploy instead of leaving leadership with another undifferentiated priority list.</p>
+        </article>
+      </div>
+    </section>`;
+}
+
 function shell(title: string, path: string, body: string, description: string) {
   return `<!doctype html>
 <html lang="en">
@@ -123,10 +171,12 @@ function shell(title: string, path: string, body: string, description: string) {
   <body>
     <div class="wrap">
       ${body}
+      ${renderSharedDepth()}
       <div class="footer">
         <span>${productTitle}</span>
         <a href="${domain}">${domain.replace("https://", "")}</a>
-        <a href="https://github.com/mizcausevic-dev/">GitHub</a>
+        <a href="https://github.com/mizcausevic-dev/board-capital-reallocation-brief">GitHub</a>
+        <a href="https://portfolio.kineticgain.com/">Portfolio</a>
         <a href="https://www.linkedin.com/in/mirzacausevic/">LinkedIn</a>
         <a href="https://kineticgain.com/">Kinetic Gain</a>
       </div>
