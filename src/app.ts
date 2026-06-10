@@ -1,4 +1,5 @@
 import express from "express";
+import { pathToFileURL } from "node:url";
 import {
   renderDocs,
   renderOverview,
@@ -40,9 +41,12 @@ export function createApp() {
 }
 
 const port = Number(process.env.PORT || 4010);
+const isEntrypoint = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
 
-if (process.env.NODE_ENV !== "test") {
+/* v8 ignore start -- process entrypoint is exercised by deployment smoke checks, not unit coverage. */
+if (isEntrypoint && process.env.NODE_ENV !== "test") {
   createApp().listen(port, () => {
     console.log(`board-capital-reallocation-brief listening on http://127.0.0.1:${port}`);
   });
 }
+/* v8 ignore stop */
